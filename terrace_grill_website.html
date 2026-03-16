@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terrace Grill – A.S. Rao Nagar, Secunderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--fire:#C84B11;--fire-light:#F5E8DF;--charcoal:#1C1A17;--cream:#FAF7F2;--gold:#B07D3A;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);}
+.page{max-width:720px;margin:0 auto;padding:0 0 3rem;}
+
+/* HERO */
+.hero{background:var(--charcoal);padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 80%,rgba(200,75,17,0.35),transparent);pointer-events:none;}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:#FAF7F2;line-height:1.15;margin-bottom:.6rem;}
+.hero-tagline{font-size:15px;color:rgba(250,247,242,0.6);margin-bottom:2rem;font-weight:300;}
+.hero-cta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.btn-primary{background:var(--fire);color:#fff;border:none;padding:12px 26px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+.btn-ghost{background:transparent;color:#FAF7F2;border:1px solid rgba(250,247,242,0.3);padding:12px 26px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+.btn-primary:hover{opacity:.88;}
+.btn-ghost:hover{border-color:rgba(250,247,242,0.6);}
+
+/* STRIP */
+.strip{display:flex;justify-content:center;background:var(--fire);padding:.8rem 2rem;}
+.strip-item{flex:1;text-align:center;font-size:11px;font-weight:500;color:#fff;letter-spacing:.5px;}
+.strip-item span{display:block;font-size:10px;font-weight:300;opacity:.75;margin-top:2px;}
+
+/* SECTIONS */
+.section{padding:2.5rem 1.5rem;}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--charcoal);margin-bottom:1.5rem;}
+
+/* MENU TABS */
+.tab-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.tab{padding:8px 16px;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(28,26,23,0.2);background:#fff;color:var(--charcoal);cursor:pointer;transition:all .15s;}
+.tab.active{background:var(--fire);color:#fff;border-color:var(--fire);}
+.menu-section{display:none;}
+.menu-section.active{display:block;}
+.menu-table{width:100%;border-collapse:collapse;}
+.menu-table tr{border-bottom:0.5px solid rgba(28,26,23,0.07);}
+.menu-table tr:last-child{border-bottom:none;}
+.menu-table td{padding:11px 4px;font-size:13.5px;line-height:1.45;}
+.menu-table td:last-child{text-align:right;font-weight:500;color:var(--fire);white-space:nowrap;padding-left:16px;}
+.menu-badge{display:inline-block;font-size:10px;background:var(--fire-light);color:var(--fire);border-radius:4px;padding:2px 6px;margin-left:6px;font-weight:500;}
+.menu-note{font-size:11px;color:#999;margin-top:1rem;text-align:right;}
+
+/* REVIEWS */
+.rating-big{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:var(--charcoal);line-height:1;}
+.rating-meta{font-size:12px;color:#888;margin-top:4px;}
+.rating-bar{display:flex;align-items:center;gap:10px;margin-bottom:.45rem;}
+.bar-track{flex:1;height:6px;background:#E8E3DB;border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;background:var(--gold);border-radius:3px;}
+.review-card{background:#fff;border:0.5px solid rgba(28,26,23,0.1);border-radius:10px;padding:1.1rem 1.25rem;margin-bottom:10px;}
+.review-stars{color:var(--gold);font-size:14px;margin-bottom:5px;}
+.review-text{font-size:13.5px;color:var(--charcoal);line-height:1.6;margin-bottom:.4rem;}
+.review-author{font-size:11px;color:#888;font-weight:500;}
+
+/* INFO */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.info-card{background:#fff;border:0.5px solid rgba(28,26,23,0.1);border-radius:10px;padding:1.1rem;}
+.info-icon{font-size:18px;margin-bottom:7px;}
+.info-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#888;margin-bottom:4px;}
+.info-value{font-size:13.5px;font-weight:500;color:var(--charcoal);line-height:1.55;}
+
+/* FOOTER CTA */
+.footer-cta{background:var(--charcoal);margin:0 1.5rem;border-radius:12px;padding:2.2rem 1.5rem;text-align:center;}
+.footer-cta h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#FAF7F2;margin-bottom:.5rem;}
+.footer-cta p{font-size:13px;color:rgba(250,247,242,0.55);margin-bottom:1.5rem;font-weight:300;}
+.footer-cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-zomato{background:#E23744;color:#fff;border:none;padding:11px 22px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;}
+.btn-swiggy{background:#FF6600;color:#fff;border:none;padding:11px 22px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;}
+.btn-call{background:transparent;color:#FAF7F2;border:1px solid rgba(250,247,242,0.3);padding:11px 22px;border-radius:6px;font-size:13px;cursor:pointer;text-decoration:none;}
+
+footer{text-align:center;padding:2rem 1.5rem 1rem;font-size:12px;color:#aaa;}
+
+@media(max-width:480px){
+  .hero h1{font-size:2.4rem;}
+  .strip{flex-wrap:wrap;gap:8px;}
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">A.S. Rao Nagar · Secunderabad</p>
+    <h1>Terrace<br>Grill</h1>
+    <p class="hero-tagline">Traditional Indian flavours with a modern terrace spirit</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:09849067056">Call to Reserve</a>
+      <a class="btn-ghost" href="#menu">View Menu</a>
+    </div>
+  </div>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-item">All You Can Eat<span>Available</span></div>
+    <div class="strip-item">Outdoor Seating<span>Terrace</span></div>
+    <div class="strip-item">Private Dining<span>Groups welcome</span></div>
+    <div class="strip-item">4.3 ★ Rating<span>5,512 reviews</span></div>
+  </div>
+
+  <!-- MENU -->
+  <div class="section" id="menu">
+    <p class="section-label">Full menu</p>
+    <p class="section-title">What we serve</p>
+
+    <div class="tab-bar">
+      <button class="tab active" onclick="switchTab('starters', this)">Non-Veg Starters</button>
+      <button class="tab" onclick="switchTab('mutton', this)">Mutton</button>
+      <button class="tab" onclick="switchTab('seafood', this)">Sea Food</button>
+      <button class="tab" onclick="switchTab('vegcurries', this)">Veg Curries</button>
+    </div>
+
+    <div id="tab-starters" class="menu-section active">
+      <table class="menu-table">
+        <tr><td>Chicken Spring Rolls</td><td>₹309</td></tr>
+        <tr><td>Kodi Chips</td><td>₹339</td></tr>
+        <tr><td>Chicken 65 / Pepper / Manchuria / Chilli</td><td>₹339</td></tr>
+        <tr><td>Chicken Majestic / Tambola</td><td>₹339</td></tr>
+        <tr><td>Crispy Chicken / Schezwan</td><td>₹339</td></tr>
+        <tr><td>Chilli Chicken Wings</td><td>₹339</td></tr>
+        <tr><td>Brown Garlic Chicken Dry</td><td>₹349</td></tr>
+        <tr><td>Chicken Drum Sticks (8 pcs)</td><td>₹419</td></tr>
+        <tr><td>Chicken Drum Sticks (4 pcs)</td><td>₹279</td></tr>
+        <tr><td>Chicken Lollipops (8 pcs)</td><td>₹439</td></tr>
+        <tr><td>Chicken Lollipops (4 pcs)</td><td>₹289</td></tr>
+        <tr><td>Spring Chicken</td><td>₹349</td></tr>
+        <tr><td>Thread Chicken</td><td>₹349</td></tr>
+        <tr><td>Spinach Chicken</td><td>₹349</td></tr>
+        <tr><td>Spicy Fried Chicken</td><td>₹349</td></tr>
+        <tr><td>Cornflex Chicken</td><td>₹349</td></tr>
+        <tr><td>Sashimi Chicken</td><td>₹359</td></tr>
+        <tr><td>Dragon Chicken / Hongkong Chicken</td><td>₹359</td></tr>
+        <tr><td>Bhutan Chicken / Finger Chicken</td><td>₹359</td></tr>
+        <tr><td>Hyderabadi Chicken Fry</td><td>₹389</td></tr>
+        <tr><td>Chicken Steak Sizzler</td><td>₹419</td></tr>
+        <tr><td>Chicken Grill Sizzler</td><td>₹419</td></tr>
+        <tr><td>Royal Chicken</td><td>₹419</td></tr>
+        <tr><td>Spl. Chicken Dry <span class="menu-badge">Special</span></td><td>₹419</td></tr>
+      </table>
+    </div>
+
+    <div id="tab-mutton" class="menu-section">
+      <table class="menu-table">
+        <tr><td>Bheja Bhurji</td><td>₹369</td></tr>
+        <tr><td>Bheja Fry</td><td>₹349</td></tr>
+        <tr><td>Chilli Mutton</td><td>₹419</td></tr>
+        <tr><td>Kakatiya Mamsam Vepudu</td><td>₹509</td></tr>
+        <tr><td>Golichina Mamsam</td><td>₹509</td></tr>
+        <tr><td>Mutton Fry (B/L)</td><td>₹509</td></tr>
+        <tr><td>Miryala Mamsam Vepudu (Pepper)</td><td>₹509</td></tr>
+        <tr><td>Kakatiya Mamsam Vepudu (B/L)</td><td>₹539</td></tr>
+        <tr><td>Miryala Mamsam Vepudu (B/L)</td><td>₹539</td></tr>
+      </table>
+    </div>
+
+    <div id="tab-seafood" class="menu-section">
+      <table class="menu-table">
+        <tr><td>Finger Fish</td><td>₹399</td></tr>
+        <tr><td>Fish 'N' Chips</td><td>₹419</td></tr>
+        <tr><td>Corn Flakes Fish</td><td>₹419</td></tr>
+        <tr><td>Roasted Fish / Prawns</td><td>₹419</td></tr>
+        <tr><td>Apollo Fish</td><td>₹419</td></tr>
+        <tr><td>Chilli Fish</td><td>₹419</td></tr>
+        <tr><td>Ginger Fish</td><td>₹419</td></tr>
+        <tr><td>Golden Fried Prawns</td><td>₹419</td></tr>
+        <tr><td>Loose Prawns</td><td>₹419</td></tr>
+        <tr><td>Chilli Prawns</td><td>₹419</td></tr>
+        <tr><td>Butter Garlic Prawns Dry</td><td>₹419</td></tr>
+        <tr><td>Prawns Fry</td><td>₹429</td></tr>
+      </table>
+    </div>
+
+    <div id="tab-vegcurries" class="menu-section">
+      <table class="menu-table">
+        <tr><td>Plain Palak / Spicy Veg Curry</td><td>₹279</td></tr>
+        <tr><td>Mix Veg. Curry</td><td>₹299</td></tr>
+        <tr><td>Dal Fry / Tomato Dal / Dal Tadka</td><td>₹299</td></tr>
+        <tr><td>Aloo Palak</td><td>₹299</td></tr>
+        <tr><td>Veg. Chatpat / Dopayaza / Kadai / Kandari</td><td>₹299</td></tr>
+        <tr><td>Thawa Veg. / Veg. Kholapuri Curry</td><td>₹309</td></tr>
+        <tr><td>Papdi Veg. / Peri Peri Veg. Curry</td><td>₹309</td></tr>
+        <tr><td>Mushroom Masala</td><td>₹319</td></tr>
+        <tr><td>Tomato Kaju Curry / Paneer Kaju Curry</td><td>₹319</td></tr>
+        <tr><td>Nizami Handi Veg.</td><td>₹319</td></tr>
+        <tr><td>Veg. Jaipur / Achari Paneer</td><td>₹319</td></tr>
+        <tr><td>Malai Kofta / Punjabi Koftha Curry</td><td>₹319</td></tr>
+        <tr><td>Mushroom Baby Corn Curry</td><td>₹319</td></tr>
+        <tr><td>Palak Paneer / Paneer Chatpat</td><td>₹319</td></tr>
+        <tr><td>Paneer Bhurji</td><td>₹319</td></tr>
+        <tr><td>Paneer Kulsan Curry</td><td>₹319</td></tr>
+        <tr><td>Paneer Butter Masala</td><td>₹329</td></tr>
+        <tr><td>Nargish Koftha Curry</td><td>₹369</td></tr>
+      </table>
+      <p class="menu-note">*Taxes GST 5% extra</p>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section" style="padding-top:0">
+    <p class="section-label">What guests say</p>
+    <p class="section-title">Reviews</p>
+    <div style="display:flex;align-items:flex-end;gap:1.5rem;margin-bottom:1.5rem;">
+      <div><div class="rating-big">4.3</div><div class="rating-meta">5,512 Google reviews</div></div>
+      <div style="flex:1;">
+        <div class="rating-bar"><span style="font-size:11px;width:60px;display:inline-block;color:var(--charcoal)">Excellent</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div></div>
+        <div class="rating-bar"><span style="font-size:11px;width:60px;display:inline-block;color:var(--charcoal)">Good</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div></div>
+        <div class="rating-bar"><span style="font-size:11px;width:60px;display:inline-block;color:var(--charcoal)">Average</span><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div></div>
+        <div class="rating-bar"><span style="font-size:11px;width:60px;display:inline-block;color:var(--charcoal)">Poor</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div></div>
+      </div>
+    </div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Great place, tasty food, good ambience, reasonable prices, great service.</p><p class="review-author">Sateesh Javaraya Vijaya</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Great place to hangout with friends, family and work colleagues.</p><p class="review-author">Sree Karun</p></div>
+  </div>
+
+  <!-- INFO -->
+  <div class="section" style="padding-top:0">
+    <p class="section-label">Visit us</p>
+    <p class="section-title">Find us</p>
+    <div class="info-grid">
+      <div class="info-card"><div class="info-icon">📍</div><p class="info-label">Address</p><p class="info-value">Behind ECIL Bus Stop, Main Road, A.S. Rao Nagar, Secunderabad – 500062</p></div>
+      <div class="info-card"><div class="info-icon">🕐</div><p class="info-label">Hours</p><p class="info-value">Open daily<br>Closes 12 midnight</p></div>
+      <div class="info-card"><div class="info-icon">📞</div><p class="info-label">Phone</p><p class="info-value"><a href="tel:09849067056" style="color:var(--fire);text-decoration:none;">098490 67056</a></p></div>
+      <div class="info-card"><div class="info-icon">🍽️</div><p class="info-label">Typical visit</p><p class="info-value">1–3 hours per visit</p></div>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <h3>Ready to visit?</h3>
+    <p>Book your table on Zomato or Swiggy, or call us directly.</p>
+    <div class="footer-cta-btns">
+      <a class="btn-zomato" href="https://www.zomato.com/hyderabad/terrace-grill-a-s-rao-nagar" target="_blank">Zomato</a>
+      <a class="btn-swiggy" href="https://www.swiggy.com" target="_blank">Swiggy</a>
+      <a class="btn-call" href="tel:09849067056">Call us</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Terrace Grill, Secunderabad. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
